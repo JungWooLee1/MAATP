@@ -154,7 +154,7 @@
 
 
 
-          
+                objLoading()
 
 
             })
@@ -684,6 +684,43 @@
             // obj파일 형식의 3D object를 로딩하는 함수입니다.
 
 
+            function objLoading() {
+
+                // instantiate the loader
+                var loader = new THREE.OBJLoader2();
+
+                // function called on successful load
+                var callbackOnLoad = function ( event ) {
+
+                    console.log(event.detail.loaderRootNode)
+
+
+                    var Obj3 = event.detail.loaderRootNode;
+
+                    var degreeX = (90 * Math.PI) / 180
+
+
+                    Obj3.rotateX(degreeX)
+                    Obj3.scale.set(50,50,50)
+
+
+                    // 텍스쳐 매핑
+
+
+                    for(var i in Obj3.children) {
+                        // apply to Mesh of interest {
+                        var texture = THREE.ImageUtils.loadTexture('loaders/skin.png');
+                        texture.wrapS = THREE.RepeatWrapping;
+                        texture.wrapT = THREE.RepeatWrapping;
+                        Obj3.children[i].material = new THREE.MeshLambertMaterial({map: texture, needsUpdate: true});
+                    } // end apply to Mesh of interest
+
+
+
+
+
+                    world.add( Obj3 );
+                };
 
                 // load a resource from provided URL synchronously
                 loader.load( 'models/monster.obj', callbackOnLoad, null, null, null, false );
