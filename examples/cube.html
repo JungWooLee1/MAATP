@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
+    <!--
+          미디어 타입 설정 => place 태그로 렛시 브라우저에 AR 컨텐츠의 미디어 쿼리임을 알려준다.
+    -->
+
+
+    <div id="video" class="cube-face">
+
+        <h1>This is an H1 Element.</h1>
+        <p>Hello Three.js cookbook</p>
+
+    </div>
+
+    <div id="map" class="cube-face">
+
+        <h1>This is an H2 Element.</h1>
+        <p>Hello Three.js cookbook</p>
+
+    </div>
+
+    <div id="slider" class="cube-face">
+
+        <h1>This is an H3 Element.</h1>
+        <p>Hello Three.js cookbook</p>
+
+    </div>
+
+    <div id="svg" class="cube-face">
+
+        <h1>This is an H4 Element.</h1>
+        <p>Hello Three.js cookbook</p>
+
+    </div>
+
+    <div id="picker-container" class="cube-face">
+
+        <h1>This is an H5 Element.</h1>
+        <p>Hello Three.js cookbook</p>
+
+    </div>
+
+    <div id="chart" class="cube-face">
+
+        <h1>This is an H6 Element.</h1>
+        <p>Hello Three.js cookbook</p>
+
+    </div>
+
+    <div id="todo" class="cube-face">
+
+        <h1>This is an H7 Element.</h1>
+        <p>Hello Three.js cookbook</p>
+    </div>
+
+
+    <!-- 큐브를 위한 스크립트 로드 -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
+    <style media="place">
+        #target1 {
+            -letsee-target: uri('https://d.letsee.io/EMdTOnQqEjfW');
+            -letsee-position: coords(0, 150, 0);
+        }
+
+        .cube-face {
+            -letsee-target: uri('https://d.letsee.io/EMdTOnQqEjfW2222');
+            font-size: 0.4em;
+        }
+
+        div.cube-face {
+            background-color: pink;
+            width: 150px;
+            height: 150px;
+        }
+
+        img {
+            border:0;
+            width:50px;
+            height:50px
+
+        }
+
+        .control-btn{
+
+            border:0;
+            width: 30px;
+            height: 30px;
+
+        }
+
+        .control-btn.left       {
+
+            background: url(btn-rtt-left.svg) no-repeat;
+            margin-left: 14%;
+
+        }
+
+        .control-btn.middle {
+
+
+            background: url(btn-rtt-left.svg) no-repeat;
+            margin-left: 14%;
+
+        }
+
+        .control-btn.right {
+
+            background: url(btn-rtt-left.svg) no-repeat;
+            margin-left: 14%;
+
+        }
+
+    </style>
+
+
+    <head>
+
+        <script>
+
+        </script>
+
+
+    </head>
+
+
+<body>
+
+
+<!-- 이벤트 버블링?? -->
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+    // function func1() {
+    //     window.alert("클릭 ~")
+    // }
+
+
+    var cube = new Object3D();
+
+    window.addEventListener("letsee.load", function () {
+
+
+        console.log("시작~")
+
+        var entity = letsee.getEntity('https://d.letsee.io/EMdTOnQqEjfW')
+        var cubeSize = 150
+        var margin = cubeSize / 2
+
+
+        cube = new Object3D();
+        var faces = document.getElementsByClassName('cube-face');
+
+
+        // 각각의 큐브의 면을 초기화
+
+        for (var i = 0; i < faces.length; i++) {
+            var cubeFace = new DOMRenderable(faces[i]);
+
+            switch (i) {
+
+                case 0: // video
+                    cubeFace.rotateY(Math.PI / 2);
+                    cubeFace.position.x = margin;
+                    break;
+                case 1: // map
+                    cubeFace.rotateY(-Math.PI / 2);
+                    cubeFace.position.x = -margin;
+                    break;
+                case 2: // slider
+                    cubeFace.rotateX(-Math.PI / 2);
+                    cubeFace.position.y = margin;
+                    break;
+                case 3: // svg
+                    cubeFace.position.z = margin;
+                    break;
+                case 4: // chart
+                    cubeFace.rotateX(-Math.PI);
+                    cubeFace.position.z = -margin;
+                    break;
+                case 5: // todo
+                    cubeFace.rotateX(Math.PI / 2);
+                    cubeFace.position.y = -margin;
+                    break;
+                default:
+                    break;
+
+            }
+
+            cube.add(cubeFace)
+        }
+
+        entity.addRenderable(cube)
+
+
+    })
+
+
+    $(document).ready(function () {
+
+
+    })
+
+
+    $('.control-btn').click(function () {
+
+        console.log("클릭 실행")
+
+    })
+
+
+
+    function func1() {
+
+        cube.rotateZ(Math.PI / 2);
+
+    }
+
+    function func2() {
+
+        cube.quaternion = new Quaternion();
+
+    }
+
+
+    function func3() {
+
+        cube.rotateZ(-Math.PI / 2);
+    }
+
+
+    func1()
+
+</script>
+
+
+
+
+<table border="0" style="width: 90% ;margin-top:150%;margin-left:14% ; z-index: 999 ;position: absolute">
+
+
+
+    <tbody border="0">
+    <tr style="width:100%">
+        <td style="width:33%" onclick="func1()">
+
+            <img src="btn-rtt-left.svg">
+            </img>
+
+        </td>
+        <td style="width:33%" onclick="func2()">
+
+            <img src="btn-rtt-default@2x.png">
+            </img>
+        </td>
+        <td style="width:33%" onclick="func3()">
+
+            <img src="btn-rtt-right.svg">
+            </img>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+</body>
+</html>

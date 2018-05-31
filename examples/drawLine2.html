@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+        <title>My first three.js app</title>
+        <style>
+            body { margin: 0; }
+            canvas { width: 100%; height: 100% }
+            td {text-align: right}
+            .td1{text-align: left}
+            
+        </style>
+
+        <!-- 추가한 부분 -->
+
+
+
+        <!-- <script src="/scripts/conc/three.js"></script> -->
+        <script src="Detector.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <style>
+            body {
+
+                font-family: Monospace;
+                background-color: #f0f0f0;
+                margin: 0px;
+                overflow: hidden;
+
+            }
+        </style>
+    </head>
+
+    <body>
+        
+        <div style='display:block;position:absolute; padding: 10px'>
+           
+            <button onclick='addShapes();return false;'>Shapes</button>
+            <button onclick='isRotating=!isRotating;return false;'>Rotate</button>
+            <button onclick='undoDrawing()'>Undo</button>
+            <button onclick='redoDrawing()'>Redo</button>
+
+            <label class='myLabel' id='xLabel' style="margin-left: 5%;">
+                <script type='text/javascript'>document.write(window.innerWidth)</script>
+            </label>
+            <label> : </label>
+            <label class='myLabel' id='yLabel'>
+                <script type='text/javascript'>document.write(window.innerHeight)</script>
+            </label>
+
+            <br />
+            <br />
+            
+            <table cellpadding="5">
+                <tr>
+                    <td>
+                        <label>x :</label>
+                        <input id='xLocation' type='number'  step="any"/>
+                    </td>
+                    <td>
+                        <label>y :</label>
+                        <input id='yLocation' type='number'  step="any"/>
+                    </td>
+                    <td class='td1'>
+                        <label>z : 0.5</label>
+                    </td>
+                </tr>
+                <tr>
+                    
+                    <td text-align="center">
+                        <label>text : </label>
+                    </td>
+                    <td>
+                         <textarea id="textArea1" margin="10"></textarea>  
+                    </td>
+                    <td><button onclick="textDrawing()">텍스트 입력</button></td>
+                </tr>
+            </table> 
+            <br>
+            <label>선 색상 : </label> 
+
+            <select id="lineColorSB" name="line" onchange='setColor("line")'>
+                <option value="">색상선택</option>
+                <option value="검정">검정</option>
+                <option value="빨강">빨강</option>
+                <option value="노랑">노랑</option>
+                <option value="파랑">파랑</option>
+                <option value="남색">남색</option>
+                <option value="보라">보라</option>
+            </select>
+
+            &nbsp&nbsp
+
+            <label>텍스트 색상 : </label> 
+            
+            <select id="textColorSB" name="text" onchange='setColor("text")'>
+                <option value="">색상선택</option>
+                <option value="검정">검정</option>
+                <option value="빨강">빨강</option>
+                <option value="노랑">노랑</option>
+                <option value="파랑">파랑</option>
+            </select>
+
+            &nbsp&nbsp
+
+            <label>Shapes 색상 : </label> 
+            
+            <select id="textColorSB" name="text" onchange='setColor("shape")'>
+                <option value="">색상선택</option>
+                <option value="검정">검정</option>
+                <option value="빨강">빨강</option>
+                <option value="노랑">노랑</option>
+                <option value="파랑">파랑</option>
+            </select>
+                       
+        </div>
+
+
+        <script>
+
+
+
+            var lastPoint = null;
+            var container;
+            var camera, scene, projector, renderer;
+            var particleMaterial;
+            var objects = [];
+            var isRotating=false;
+
+
+            var undoStack = [];
+            var redoStack = [];
+            var lineObjects = [];
+
+            // 폰트 저장하는 부분
+
+            var myFont = undefined;
+
+            // 색상 설정하는 부분
+            var textColor, lineColor, shapeColor ;
+
+
+
+            function setColor(type)
+            {
+                if(type=="line")
+                {
+                    //document.getElementById("lineColorSB").
+
+                }
+
+                else if(type =="text")
+                {
+                    console.log("텍스트 선택")
+                }
+                else if(type=="shape")
+                {
+
+                }
+            }
+
+
+
+            function textDrawing() 
+            {
+                
+               
+                /////////////////연구중/////////////////////////////////
+                // xLoaction과 yLocation 의 x, y 축을 구합니다.          //
+                
+
+                var event ={
+
+                    clientX : xLocation,
+                    clientY : yLocation
+
+                }
+                // 3d verticle 좌표를 얻습니다.
+                var point = get3dPointZAxis(event)
+                textGeom.vertices.push(point)
+
+
+                ///////////////////////////////////////////////////////
+
+
+
+                ////////////////////////////////////////////////////////
+                // 입력할 텍스트의 material (색상, 두께, 등을 결정) 을 설정합니다.//
+                ////////////////////////////////////////////////////////
+                var material = new THREE.MeshPhongMaterial( 
+                  { color: 0xff0000, specular: 0xffffff }
+                );
+
+
+
+                // 입력할 텍스트의 값을 받아옵니다.
+                var inputText=document.getElementById('textArea1').value
+
+
+
+                // 입력할 텍스트의 Geometry를 설정합니다.
+
+                var textGeom = new THREE.TextGeometry( inputText, {
+                    
+                       font: myFont,
+
+                       size: 50,
+                       height: 10,
+                       curveSegments: 12,
+
+                       bevelThickness: 1,
+                       bevelSize: 1,
+                       bevelEnabled: true
+
+                })
+
+
+
+                // material과 geometry를 mesh하고 scene에 추가합니다.
+
+                var textMesh =  new THREE.Mesh( textGeom, material )
+
+
+
+
+                // input 폼의 x좌표와 y좌표의 값을 받아옵니다.
+                var xLocation = document.getElementById('xLocation').value
+                var yLocation = document.getElementById('yLocation').value 
+
+
+                // mesh 의 좌표를 설정합니다.
+                // mesh는 object3d 객체를 상속받습니다.                
+                textMesh.position.set(xLocation, yLocation,  0.5)
+
+
+
+                // mesh의 좌표를 보는 로그입니다.
+                console.log(textMesh.position)
+                
+
+
+                // 장면을 입력합니다.
+                scene.add(textMesh)
+
+            }
+
+
+
+            /////////////////////////////드로잉///////////////////////////////////
+
+
+            function undoDrawing()
+            {
+                //Three.Line 의 주소값 반환
+                //var line = undoStack.pop()
+            
+
+
+                // lineObjects들이 저장된 배열을 저장하는 스텍에서 lineObjects배열의 line 집합을 scene에서 remove하는 함수
+
+                var undo = function (lines) 
+                {
+                    for (var i=0;i<lines.length;i++)
+                    {
+                        var line=lines[i]
+                        scene.remove(line)
+                    }
+                }
+
+
+                var lines = undoStack.pop()
+
+
+
+                // 지운 lineObjects를 redoStack에 push합니다.
+
+                redoStack.push(lines)
+                
+                undo(lines)
+
+
+            }
+
+            function redoDrawing()
+            {
+                var redo = function (lines)
+                {
+                    for (var i=0;i<lines.length;i++)
+                    {
+                        var line=lines[i]
+                        scene.add(line)
+                    }
+                }
+
+
+                var lines = redoStack.pop()
+                undoStack.push(lines)
+                redo(lines)
+
+            }
+
+
+            function get3dPointZAxis(event)
+            {
+
+                // Three.js 에서 마우스 좌표를 얻어서 백터값으로 저장합니다.
+
+                // 마우스의 x좌표 => ( event.clientX / window.innerWidth ) * 2 - 1
+                // 마우스의 y좌표 => - ( event.clientY / window.innerHeight ) * 2 + 1
+
+                var vector = new THREE.Vector3(
+                    ( event.clientX / (window.innerWidth -300) ) * 2 - 1,
+                    - ( event.clientY / (window.innerHeight -300)) * 2 + 1,
+                    0.5 );
+
+
+
+                // 해당 설정한 카메라로 백터값을 비췄을때 벡터의 변화가 나타납니다.
+
+                // projectvector는 3D점을 2D 화면으로 변환하기 위해 사용합니다.
+
+                // unprojectVector은 기본적으로 이 역을 수행하여 2D점을 3D 세계로 투영하는 것 입니다.
+
+                // ex) -0.57, 0.09, 0.5 => -1.2, 0.24, 696.0011
+
+
+                //console.log("[ 1 ] ", vector)
+
+                projector.unprojectVector( vector, camera );
+
+                //console.log("[ 2 ] ", vector)
+
+
+
+                // vector.sub 란
+                // 현재 백터에서 camera.position만큼의 vector값을 뺀 뒤 정규화 합니다.
+                var dir = vector.sub( camera.position ).normalize();
+
+
+
+
+                console.log("[ 3 ] ", camera.position)
+
+                //console.log("[ 4 ] ", dir)
+
+                var distance = - camera.position.z / dir.z;
+
+                // 벡터에 거리값을 곱합니다.
+                var pos = camera.position.clone().add( dir.multiplyScalar( distance ) );
+
+                // 카메라에 의해 변환된 벡터를 반환합니다.
+                return pos;
+
+            }
+
+
+            function startDraw(event)
+            {
+                 lastPoint = get3dPointZAxis(event);
+
+                 // lineObjects 배열을 초기화 합니다.
+                 lineObjects = [];
+
+                 console.log("startDraw() 호출")
+           
+
+            }
+
+            function stopDraw(event)
+
+            {
+                lastPoint = null;
+                console.log("lineObjects의 크기"+lineObjects.length)
+                
+                // undo 버튼을 눌렀을때 lineObjects 값이 push되는 현상이 발생하므로
+                // 이를 막기위해 lineObjects의 크기가 0일떄는 push하지 않는다.
+
+                if(lineObjects.length===0)
+                {
+
+                }
+                else{
+                    undoStack.push(lineObjects.slice());
+                }
+                
+                console.log("stopDraw() 호출")
+
+
+
+            }
+
+            function doDraw(event)
+            {    
+
+                console.log("doDraw() 호출")
+
+                if( lastPoint )
+                {
+                    var pos = get3dPointZAxis(event);
+                    var material = new THREE.LineBasicMaterial({
+                        color: 0x0000ff
+                    });
+                    var geometry = new THREE.Geometry();
+                    
+
+                    // Math.abs => 숫자의 절대값을 반환합니다.
+
+
+
+
+                    // 1. 각 좌표의 차이의 절대값이 500보다 모두 작으면 실행되는 조건문입니다. (너무 빠르게 움직였을때 함수 호출을 최소화 하기 위해서)
+                    // 2. verticles에 lastPoint의 좌표와 pos의 좌표를 push합니다.
+                    // 3. 
+
+                    if( Math.abs(lastPoint.x - pos.x) < 500 && Math.abs(lastPoint.y - pos.y) < 500 && Math.abs(lastPoint.z - pos.z) < 500 )
+                    {
+                        geometry.vertices.push(lastPoint);
+                        geometry.vertices.push(pos);
+
+                        //console.log("doDraw() 호출")
+                                        
+                        var line = new THREE.Line(geometry, material);
+
+                        // Three.Line의 값을 object 단위로 저장하고 있는 lineObjects를 선언합니다.
+                        lineObjects.push(line)
+                        //console.log(line.isLine)
+                        
+                        scene.add(line);
+                        scene.background = new THREE.Color(0xEDEDff)
+                        lastPoint = pos;
+
+
+                        // 안드로이드에서 경고창이 발생하는 문제가 있어서 Math.floor로 소숫점 이하 제거
+
+                    }
+
+
+                    else
+                    {
+
+
+                        console.debug(lastPoint.x.toString() + ':' + lastPoint.y.toString() + ':' + lastPoint.z.toString()  + ':' + 
+                                    pos.x.toString() + ':' + pos.y.toString()  + ':' + pos.z.toString());
+                    }
+                }
+              
+
+            }
+            ////////////////////////////////////////////////////////////
+
+
+            // 사각형 (CubeGeometry) 를 추가하는 함수입니다.
+            
+            function addShapes()
+            {
+                // 가로, 세로, 깊이, 분할된 면의 수
+                var geometry = new THREE.CubeGeometry( 100, 100, 100, 1, 1, 1 );
+                
+                // 좌표의 증가값을 나타냅니다.
+                var increment = 300;
+
+                // 2개의 큐브를 추가합니다.
+
+                for ( var i = 1; i <= 2; i ++ ) {
+                    
+                    // 큐                
+                    var object = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { color: 'green', opacity: 1 } ) );
+                    
+                    //object.position.x = -500 + increment;
+                    //object.position.y = 400;
+                    //object.position.z = -500 + increment;
+
+                    object.position.x = 0;
+                    object.position.y = 0;
+                    object.position.z = 0;
+
+
+
+                    object.scale.x = 1;
+                    object.scale.y = 1;
+                    object.scale.z = 1;
+
+
+                    // 회전한 좌표 
+                    //object.rotation.x = i / 3 * Math.PI;
+                    //object.rotation.y = i / 3 * Math.PI;
+                    //object.rotation.z = i / 3 * Math.PI;                       
+                    
+                    scene.add( object );
+
+                    objects.push( object );
+                    increment +=increment;
+                }
+            }
+
+            init();
+            animate();
+
+
+
+
+            // 글자를 입력할때 사용할 Font를 로드하는 함수입니다.
+
+
+            function loadFont() {
+
+                var loader = new THREE.FontLoader();
+
+                // 폰트 로
+                var font = loader.load(
+                    // resource URL
+                    'fonts/helvetiker_regular.typeface.json',
+                    // onLoad callback
+                    function ( font ) {
+                        // do something with the font
+                        myFont = font
+                    },
+
+                    // onProgress callback
+                    function ( xhr ) {
+                        console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+                    },
+                    // onError callback
+                    function ( err ) {
+                        console.log( 'An error happened' +err);
+                    }
+                );
+            }
+
+
+
+            // 렌더러와 카메라 등 Three.js를 사용하기 위한 변수를 초기화하는 함수입니다.
+
+            function init() {
+
+                container = document.createElement( 'div' );
+                document.body.appendChild( container );
+                
+                
+                // 투영 카메라를 설정합니다. 
+                // 생성자 매개변수는 
+                // fov : 시야각 , aspect : 카메라 가로세로 비율, near : 평면?? , far : 평면 ?? 입니다.
+
+                camera = new THREE.PerspectiveCamera( 70, (window.innerWidth -300) / ( window.innerHeight-300), 400, 10000);
+                //camera.position.set( 0, 300, 500 );
+
+                camera.position.set( 0, 0, 700 );
+
+
+                scene = new THREE.Scene();
+
+                projector = new THREE.Projector();
+
+                if ( Detector.webgl )
+                    renderer = new THREE.WebGLRenderer( {antialias:true} );
+                else
+                    renderer = new THREE.CanvasRenderer();
+                    
+                renderer.setClearColor( 0xf0f0f0 );
+                renderer.setSize( window.innerWidth -300 , window.innerHeight -300);
+
+                container.appendChild( renderer.domElement );
+
+                
+
+
+                document.addEventListener( 'mousedown', startDraw, false );
+                
+                document.addEventListener( 'mouseup', stopDraw, false );
+                
+                document.addEventListener( 'mousemove', doDraw, false );
+
+
+                ////////////////////// 터치 이벤트 구현 ///////////
+
+
+                document.addEventListener('touchstart', startDraw, false);
+                document.addEventListener('touchmove', doDraw, false);
+                document.addEventListener('touchend', stopDraw, false);
+
+
+
+                window.addEventListener( 'resize', onWindowResize, false );
+
+            
+
+                loadFont();
+            }
+
+            function onWindowResize() {
+
+                camera.aspect = (window.innerWidth -300) / (window.innerHeight -300);
+                camera.updateProjectionMatrix();
+
+                renderer.setSize( window.innerWidth -300 , window.innerHeight -300);
+
+
+
+            }
+
+
+            // 애니메이션 동작을 수행하는 함수입니다.
+
+            function animate() {
+
+                requestAnimationFrame( animate );
+
+                render();
+
+
+                console.log("[ 3 ] ", camera.position)
+
+
+
+            }
+
+            var radius = 1000;
+            var theta = 90;
+
+
+            // 카메라의 각도를 통해서 애니메이션을 동작시키는 함수입니다.
+
+            function render() {
+                if(isRotating)
+                {
+                    // theta는 회전하는 속도(또는 각도)를 의미하는것 같습니다.
+                    // 자세한 부분은 좀 더 분석이 필요합니다.
+
+                    theta += 0.9;
+
+                    // degree를 radian으로 변환하고 sin값을 취한다음 반지름을 곱하니까 각이 나오네.. ㅋㅋ 
+                    camera.position.x = radius * Math.sin( THREE.Math.degToRad( theta ) );
+                    camera.position.y = radius * Math.sin( THREE.Math.degToRad( theta ) );
+                    camera.position.z = radius * Math.cos( THREE.Math.degToRad( theta ) );
+                    camera.lookAt( scene.position );
+                
+                }
+
+                renderer.render( scene, camera );
+
+            }
+
+
+
+        </script>
+
+
+    </body>
+    
+</html>

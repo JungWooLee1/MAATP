@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+
+    <!--
+          미디어 타입 설정 => place 태그로 렛시 브라우저에 AR 컨텐츠의 미디어 쿼리임을 알려준다.
+    -->
+    <style media="place">
+
+        #target1 {
+            -letsee-target: uri('https://d.letsee.io/EMdTOnQqEjfW');
+            -letsee-position: coords(0, 0, 0);
+        }
+
+    </style>
+
+
+    <!-- 큐브를 위한 스크립트 로드 -->
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.min.js"></script>
+
+
+    <head>
+
+        <script>
+
+
+            var renderer;
+
+            var world;
+
+
+            // 구의 position에 대한 2차원 배열을 선언합니다.
+
+            var index = [
+                [-110, -110, 0], [0, -110, 0], [110, -110, 0],
+                [-110, 0, 0], [0, 0, 0], [110, 0, 0],
+                [-110, 110, 0], [0, 110, 0], [110, 110, 0]]
+
+            var color = [
+                0xff0000,
+                0xff8c00,
+                0xffff00,
+                0x008000,
+                0x0000ff,
+                0x4b0082,
+                0x800080,
+                0xff1493,
+                0xf4a460
+
+            ]
+
+
+            // 1. ThreeWebGL Renderer를 설정합니다.
+            // 2. 빛을 추가합니다.
+            // 3. mesh를 추가합니다. ==>
+
+
+            window.addEventListener("letsee.load", function () {
+
+
+                // --(1)
+                renderer = new THREEWebGLRenderer();
+                world = new THREE.Object3D();
+                renderer.addObjectToEntity('https://d.letsee.io/EMdTOnQqEjfW', world);
+
+
+                var light = new THREE.AmbientLight(0xffffff, 0.5);
+                light.position.set(100, 100, 100)
+                world.add(light)
+
+
+                var light2 = new THREE.PointLight(0xffffff, 0.5);
+                light2.position.set(200, 200, 200)
+
+                world.add(light2)
+
+
+                window.addEventListener("touchstart", handleCircle)
+
+
+            })
+
+
+            // 구를 추가하거나 구를 제거하는 함수입니다.
+            // 이벤트가 발생하게되면 구를 1개씩 추가합니다.
+            // 구의 갯수가 최대가 되면 한개씩 구를 제거합니다.
+
+
+            var num = 0;
+
+
+            var meshObjects = [];
+
+            var sw = 1;
+
+
+            function handleCircle() {
+
+                console.log("터치 이벤트 발생")
+
+
+                if (num < 9 && sw == 1) {
+                    // 원을 1개 추가한 뒤 해당 메시를 배열에 저장합니다.
+                    var mesh = addCircle(num, color[num]);
+                    meshObjects[num] = mesh;
+                    num += sw;
+                }
+
+                else if (num == 9) {
+                    sw = sw * (-1);
+                    num += sw;
+
+                }
+
+                else if (num > -1 && sw == -1) {
+
+                    removeCircle(meshObjects[num])
+                    num += sw;
+                }
+
+                else if (num == -1) {
+                    sw = sw * (-1);
+                    num += sw;
+                }
+
+
+            }
+
+            // 0~8까지 왼쪽 위부터 오른쪽 아래까지 ~
+
+            function addCircle(position, color_) {
+
+
+                var geometry = new THREE.SphereGeometry(50, 50, 50);
+                var material = new THREE.MeshStandardMaterial(
+                    {
+                        color: color_,
+                        roughness: 0.5,
+                        metalness: 0.5
+                    }
+                )
+
+                var mesh = new THREE.Mesh(geometry, material)
+                mesh.position.set(index[position][0], index[position][1], index[position][2])
+
+
+                world.add(mesh);
+
+                return mesh;
+
+            }
+
+            function removeCircle(mesh) {
+
+
+                world.remove(mesh);
+
+            }
+
+
+        </script>
+
+
+    </head>
+<body>
+</body>
+</html>

@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e9e2c0b6-9126-4711-9b7a-db955ab156c0" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="line_v1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/line_v1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2085">
+              <caret line="139" selection-start-line="139" selection-end-line="139" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="line.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/line.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="335">
+              <caret line="156" column="10" selection-start-line="156" selection-start-column="10" selection-end-line="156" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>camera.position</find>
+      <find>camera</find>
+      <find>get3dpointzaxis</find>
+      <find>get3dpoint</find>
+      <find>decompo</find>
+      <find>cameramatrix</find>
+      <find>trackhandler</find>
+      <find>object3d</find>
+      <find>scene.add(line)</find>
+      <find>detector</find>
+      <find>detec</find>
+      <find>texture</find>
+      <find>scene.add</find>
+      <find>add</find>
+      <find>OBJLoader2</find>
+      <find>scene</find>
+      <find>load</find>
+      <find>rotat</find>
+      <find>rotationY</find>
+      <find>rotate</find>
+      <find>raycas</find>
+      <find>e.</find>
+      <find>e.detail.ma</find>
+      <find>objloader</find>
+      <find>event.detail.</find>
+      <find>console.log</find>
+      <find>webglrenderer</find>
+      <find>raycaster</find>
+      <find>dete</find>
+      <find>loader</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/circle3.html" />
+        <option value="$PROJECT_DIR$/circle.html" />
+        <option value="$PROJECT_DIR$/cube2.html" />
+        <option value="$PROJECT_DIR$/cube.html" />
+        <option value="$PROJECT_DIR$/trans.html" />
+        <option value="$PROJECT_DIR$/trans" />
+        <option value="$PROJECT_DIR$/line_backup.html" />
+        <option value="$PROJECT_DIR$/cubeSample.html" />
+        <option value="$PROJECT_DIR$/CanvasRenderer.js" />
+        <option value="$PROJECT_DIR$/quterRo" />
+        <option value="$PROJECT_DIR$/Projector.js" />
+        <option value="$PROJECT_DIR$/quterRo.html" />
+        <option value="$PROJECT_DIR$/ray.html" />
+        <option value="$PROJECT_DIR$/Detector.js" />
+        <option value="$PROJECT_DIR$/line_v2.html" />
+        <option value="$PROJECT_DIR$/drawLine2.html" />
+        <option value="$PROJECT_DIR$/line_v1.html" />
+        <option value="$PROJECT_DIR$/loaders/OBJLoader2" />
+        <option value="$PROJECT_DIR$/examples/OBJLoader2.js" />
+        <option value="$PROJECT_DIR$/loaders/LoaderSupport.js" />
+        <option value="$PROJECT_DIR$/examples/ray.html" />
+        <option value="$PROJECT_DIR$/line.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="3055" />
+    <option name="y" value="168" />
+    <option name="width" value="1822" />
+    <option name="height" value="1153" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="1" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="1" type="462c0819:PsiDirectoryNode" />
+              <item name="loaders" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="1" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+    <property name="typescript-compiler-editor-notification" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/loaders" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/loaders" />
+      <recent name="$PROJECT_DIR$/examples" />
+      <recent name="$PROJECT_DIR$/models" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.ray.html (1)">
+    <configuration name="drawLine2.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:8052/1/drawLine2.html" />
+    <configuration name="line.html (1)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:8052/1/line.html" />
+    <configuration name="quterRo.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:8052/1/quterRo.html" />
+    <configuration name="ray.html (1)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:8052/1/examples/ray.html" />
+    <configuration name="ray.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:8052/1/ray.html" />
+    <list>
+      <item itemvalue="JavaScript Debug.line.html (1)" />
+      <item itemvalue="JavaScript Debug.quterRo.html" />
+      <item itemvalue="JavaScript Debug.ray.html" />
+      <item itemvalue="JavaScript Debug.drawLine2.html" />
+      <item itemvalue="JavaScript Debug.ray.html (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.ray.html (1)" />
+        <item itemvalue="JavaScript Debug.drawLine2.html" />
+        <item itemvalue="JavaScript Debug.ray.html" />
+        <item itemvalue="JavaScript Debug.quterRo.html" />
+        <item itemvalue="JavaScript Debug.line.html (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e9e2c0b6-9126-4711-9b7a-db955ab156c0" name="Default" comment="" />
+      <created>1526455707125</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1526455707125</updated>
+      <workItem from="1526455708440" duration="8993000" />
+      <workItem from="1526520463029" duration="11611000" />
+      <workItem from="1526539096223" duration="9110000" />
+      <workItem from="1526607388241" duration="15775000" />
+      <workItem from="1526634877334" duration="1020000" />
+      <workItem from="1526636766721" duration="370000" />
+      <workItem from="1526637655453" duration="122000" />
+      <workItem from="1526864917316" duration="955000" />
+      <workItem from="1526869323413" duration="17268000" />
+      <workItem from="1527039404958" duration="14427000" />
+      <workItem from="1527061659377" duration="5231000" />
+      <workItem from="1527069584072" duration="181000" />
+      <workItem from="1527069936601" duration="2000" />
+      <workItem from="1527124242899" duration="1471000" />
+      <workItem from="1527149435107" duration="5479000" />
+      <workItem from="1527212278987" duration="21271000" />
+      <workItem from="1527242819893" duration="137000" />
+      <workItem from="1527470230664" duration="15023000" />
+      <workItem from="1527501750590" duration="3000" />
+      <workItem from="1527557033459" duration="1174000" />
+      <workItem from="1527567189639" duration="4135000" />
+      <workItem from="1527644360982" duration="4957000" />
+      <workItem from="1527673912463" duration="305000" />
+      <workItem from="1527734013874" duration="6292000" />
+      <workItem from="1527745021292" duration="97000" />
+      <workItem from="1527745122395" duration="607000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="146016000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="3055" y="168" width="1822" height="1153" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23765093" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4189064" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="TypeScript" order="7" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32993513" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/line_v1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2085">
+          <caret line="139" selection-start-line="139" selection-end-line="139" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/line.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10515">
+          <caret line="701" lean-forward="true" selection-start-line="701" selection-end-line="701" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/line.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3405">
+          <caret line="227" selection-start-line="227" selection-end-line="228" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/line_v2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1860">
+          <caret line="124" selection-start-line="124" selection-end-line="124" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ray.html" />
+    <entry file="file://$PROJECT_DIR$/Detector.js" />
+    <entry file="file://$PROJECT_DIR$/drawLine2.html" />
+    <entry file="file://$PROJECT_DIR$/line.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3405">
+          <caret line="227" selection-start-line="227" selection-end-line="228" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/line_v2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1860">
+          <caret line="124" selection-start-line="124" selection-end-line="124" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ray.html" />
+    <entry file="file://$PROJECT_DIR$/Detector.js" />
+    <entry file="file://$PROJECT_DIR$/drawLine2.html" />
+    <entry file="file://$PROJECT_DIR$/line.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" selection-start-line="35" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ray.html" />
+    <entry file="file://$PROJECT_DIR$/Detector.js" />
+    <entry file="file://$PROJECT_DIR$/drawLine2.html" />
+    <entry file="file://$PROJECT_DIR$/line.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" selection-start-line="35" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ray.html" />
+    <entry file="file://$PROJECT_DIR$/Detector.js" />
+    <entry file="file://$PROJECT_DIR$/drawLine2.html" />
+    <entry file="file://$PROJECT_DIR$/line.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" selection-start-line="35" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ray.html" />
+    <entry file="file://$PROJECT_DIR$/Detector.js" />
+    <entry file="file://$PROJECT_DIR$/drawLine2.html" />
+    <entry file="file://$PROJECT_DIR$/line.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" selection-start-line="35" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ray.html" />
+    <entry file="file://$PROJECT_DIR$/Detector.js" />
+    <entry file="file://$PROJECT_DIR$/drawLine2.html" />
+    <entry file="file://$PROJECT_DIR$/trans" />
+    <entry file="file://$PROJECT_DIR$/Detector.js" />
+    <entry file="file://$PROJECT_DIR$/line_v3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="374" column="35" selection-start-line="374" selection-start-column="35" selection-end-line="374" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ray.html" />
+    <entry file="file://$PROJECT_DIR$/circle.html" />
+    <entry file="file://$PROJECT_DIR$/drawLine2.html" />
+    <entry file="file://$PROJECT_DIR$/cube.html" />
+    <entry file="file://$PROJECT_DIR$/loaders/OBJLoader2" />
+    <entry file="file://$PROJECT_DIR$/line_v2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="611" column="31" selection-start-line="611" selection-start-column="31" selection-end-line="611" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loaders/LoaderSupport.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-21674">
+          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loaders/skin.png" />
+    <entry file="file://$PROJECT_DIR$/loaders/OBJLoader2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="1404" selection-start-line="1404" selection-end-line="1404" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/ray.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="79" column="46" lean-forward="true" selection-start-line="79" selection-start-column="7" selection-end-line="79" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/line_v1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2085">
+          <caret line="139" selection-start-line="139" selection-end-line="139" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/line.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="156" column="10" selection-start-line="156" selection-start-column="10" selection-end-line="156" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
